@@ -6,15 +6,12 @@ from django.shortcuts import render
 
 def index(request):
     url = 'http://127.0.0.1:5000/api-blog-list/'
+    for i in range(3):
+        try:
+            response = requests.get(url)
+            break
+        except Exception as e:
+            return render(request, 'login/body.html', {"error": "Erro por favor tente novamente em instantes"})
 
-    try:
-        response = requests.get(url)
-    except Exception as e:
-        return render(request, 'core/body.html', {"error": e})
-
-    print(response)
     if response.status_code == 200:
-       print(ast.literal_eval(response.content.decode()).get('blogs'))
-    data_to_template = {}
-
-    return render(request, 'core/body.html', data_to_template)
+        return render(request, 'core/body.html', ast.literal_eval(response.content.decode()))

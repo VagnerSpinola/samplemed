@@ -1,0 +1,13 @@
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 127.0.0.1:5000
+DEBUG:urllib3.connectionpool:http://127.0.0.1:5000 "POST /api-login/ HTTP/1.1" 202 0
+INFO:root:Request sucess
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 127.0.0.1:5000
+DEBUG:urllib3.connectionpool:http://127.0.0.1:5000 "GET /api-blog-list/ HTTP/1.1" 200 556
+WARNING:django.request:Not Found: /core/site.webmanifest
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 127.0.0.1:5000
+DEBUG:urllib3.connectionpool:http://127.0.0.1:5000 "GET /api-blog-list/ HTTP/1.1" 200 556
+WARNING:django.request:Not Found: /core/site.webmanifest
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): 127.0.0.1:5000
+DEBUG:urllib3.connectionpool:http://127.0.0.1:5000 "GET /api-blog-list/ HTTP/1.1" 200 556
+WARNING:django.request:Not Found: /core/site.webmanifest
+INFO:django.utils.autoreload:F:\Companies_tests\Samplemed\samplemed\blog\login\views.py changed, reloading.

@@ -1,6 +1,7 @@
 import requests
 import json
 import jwt
+import logging
 
 from django.shortcuts import render, redirect
 
@@ -11,11 +12,12 @@ def index(request):
         params = {'username': request.POST['username'], 'password': request.POST['password']}
 
         encoded_jwt = jwt.encode(params, "secret", algorithm="HS256")
-
-        try:
-            response = requests.post(url, data={"token": encoded_jwt})
-        except Exception as e:
-            return render(request, 'login/body.html', {"error": e})
+        for i in range(3):
+            try:
+                response = requests.post(url, data={"token": encoded_jwt})
+                break
+            except Exception as e:
+                return render(request, 'login/body.html', {"error": "Erro por favor tente novamente em instantes"})
 
         if response.status_code == 202:
             return redirect('core:index')
